@@ -1,0 +1,29 @@
+import webbrowser
+from googlesearch import search
+print("Welcome to the TTB, Tayem's Technological Browser")
+print("""
+The TTB can search the World Wide Web"
+The TTB can also search YouTube
+And the TTB can open any website you want    """)
+print("""
+To search the World Wide Web type in your query"
+To search YouTube type in "YouTube"
+And to open a website type in "Website"
+    """)
+
+name=input()
+
+if name == "youtube" or name == "Youtube" or name == "YouTube" or name == "yt" or name == "YT":
+    query = input("Enter what you would like to search on YouTube: ")
+    webbrowser.open("https://www.youtube.com/results?search_query=" + query)
+
+elif name == "website" or name == "Website" or name == "web" or name == "Web":
+    query = input("Enter The Website URL (including HTTPS://): ")
+    webbrowser.open(query)
+
+else:
+    print("")
+    #webbrowser.open("https:/www.google.com/search?q=" + name)
+    print("Here are all the website the World Wide Web finds for "+name+":")
+    for i in search(name, tld="com", num=100, stop=100):
+        print(i)
